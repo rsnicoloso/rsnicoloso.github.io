@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/Uso_solo_40_50_UBVSM_2.js"></script>
+        <script src="data/UBVSM50km_3.js"></script>
+        <script src="data/Uso_solo_30_40_UBVSM_4.js"></script>
+        <script src="data/UBVSM40km_5.js"></script>
+        <script src="data/Uso_solo_20_30_UBVSM_6.js"></script>
+        <script src="data/UBCSM30km_7.js"></script>
+        <script src="data/Uso_solo_10_20_UBVSM_8.js"></script>
+        <script src="data/UBVSM20km_9.js"></script>
+        <script src="data/Uso_solo_0_10_UBVSM_10.js"></script>
+        <script src="data/UBVSM10km_11.js"></script>
+        <script src="data/UBVSM_12.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-18.97732698310311,-50.97540422937823],[-18.06148674599277,-49.633415042429554]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_GoogleRoad_0');
+        map.getPane('pane_GoogleRoad_0').style.zIndex = 400;
+        var layer_GoogleRoad_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleRoad_0',
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_GoogleRoad_0;
+        map.addLayer(layer_GoogleRoad_0);
+        map.createPane('pane_GoogleSatellite_1');
+        map.getPane('pane_GoogleSatellite_1').style.zIndex = 401;
+        var layer_GoogleSatellite_1 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatellite_1',
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_GoogleSatellite_1;
+        map.addLayer(layer_GoogleSatellite_1);
+        function pop_Uso_solo_40_50_UBVSM_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['iD'] !== null ? autolinker.link(feature.properties['iD'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Área'] !== null ? autolinker.link(feature.properties['Área'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Uso_solo_40_50_UBVSM_2_0(feature) {
+            switch(String(feature.properties['iD'])) {
+                case '15':
+                    return {
+                pane: 'pane_Uso_solo_40_50_UBVSM_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,191,111,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '20':
+                    return {
+                pane: 'pane_Uso_solo_40_50_UBVSM_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(251,154,153,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '21':
+                    return {
+                pane: 'pane_Uso_solo_40_50_UBVSM_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(81,163,206,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '39':
+                    return {
+                pane: 'pane_Uso_solo_40_50_UBVSM_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(211,255,190,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '41':
+                    return {
+                pane: 'pane_Uso_solo_40_50_UBVSM_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(104,34,233,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Uso_solo_40_50_UBVSM_2');
+        map.getPane('pane_Uso_solo_40_50_UBVSM_2').style.zIndex = 402;
+        map.getPane('pane_Uso_solo_40_50_UBVSM_2').style['mix-blend-mode'] = 'normal';
+        var layer_Uso_solo_40_50_UBVSM_2 = new L.geoJson(json_Uso_solo_40_50_UBVSM_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Uso_solo_40_50_UBVSM_2',
+            layerName: 'layer_Uso_solo_40_50_UBVSM_2',
+            pane: 'pane_Uso_solo_40_50_UBVSM_2',
+            onEachFeature: pop_Uso_solo_40_50_UBVSM_2,
+            style: style_Uso_solo_40_50_UBVSM_2_0,
+        });
+        bounds_group.addLayer(layer_Uso_solo_40_50_UBVSM_2);
+        map.addLayer(layer_Uso_solo_40_50_UBVSM_2);
+        function pop_UBVSM50km_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Nome'] !== null ? autolinker.link(feature.properties['Nome'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Lat'] !== null ? autolinker.link(feature.properties['Lat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Long'] !== null ? autolinker.link(feature.properties['Long'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Elev'] !== null ? autolinker.link(feature.properties['Elev'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_UBVSM50km_3_0() {
+            return {
+                pane: 'pane_UBVSM50km_3',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(145,82,45,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_UBVSM50km_3');
+        map.getPane('pane_UBVSM50km_3').style.zIndex = 403;
+        map.getPane('pane_UBVSM50km_3').style['mix-blend-mode'] = 'normal';
+        var layer_UBVSM50km_3 = new L.geoJson(json_UBVSM50km_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_UBVSM50km_3',
+            layerName: 'layer_UBVSM50km_3',
+            pane: 'pane_UBVSM50km_3',
+            onEachFeature: pop_UBVSM50km_3,
+            style: style_UBVSM50km_3_0,
+        });
+        bounds_group.addLayer(layer_UBVSM50km_3);
+        map.addLayer(layer_UBVSM50km_3);
+        function pop_Uso_solo_30_40_UBVSM_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['iD'] !== null ? autolinker.link(feature.properties['iD'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Área'] !== null ? autolinker.link(feature.properties['Área'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Uso_solo_30_40_UBVSM_4_0(feature) {
+            switch(String(feature.properties['iD'])) {
+                case '15':
+                    return {
+                pane: 'pane_Uso_solo_30_40_UBVSM_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,191,111,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '20':
+                    return {
+                pane: 'pane_Uso_solo_30_40_UBVSM_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(251,154,153,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '21':
+                    return {
+                pane: 'pane_Uso_solo_30_40_UBVSM_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(81,163,206,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '39':
+                    return {
+                pane: 'pane_Uso_solo_30_40_UBVSM_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(211,255,190,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '41':
+                    return {
+                pane: 'pane_Uso_solo_30_40_UBVSM_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(104,34,233,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Uso_solo_30_40_UBVSM_4');
+        map.getPane('pane_Uso_solo_30_40_UBVSM_4').style.zIndex = 404;
+        map.getPane('pane_Uso_solo_30_40_UBVSM_4').style['mix-blend-mode'] = 'normal';
+        var layer_Uso_solo_30_40_UBVSM_4 = new L.geoJson(json_Uso_solo_30_40_UBVSM_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Uso_solo_30_40_UBVSM_4',
+            layerName: 'layer_Uso_solo_30_40_UBVSM_4',
+            pane: 'pane_Uso_solo_30_40_UBVSM_4',
+            onEachFeature: pop_Uso_solo_30_40_UBVSM_4,
+            style: style_Uso_solo_30_40_UBVSM_4_0,
+        });
+        bounds_group.addLayer(layer_Uso_solo_30_40_UBVSM_4);
+        map.addLayer(layer_Uso_solo_30_40_UBVSM_4);
+        function pop_UBVSM40km_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Nome'] !== null ? autolinker.link(feature.properties['Nome'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Lat'] !== null ? autolinker.link(feature.properties['Lat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Long'] !== null ? autolinker.link(feature.properties['Long'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Elev'] !== null ? autolinker.link(feature.properties['Elev'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_UBVSM40km_5_0() {
+            return {
+                pane: 'pane_UBVSM40km_5',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(190,178,151,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_UBVSM40km_5');
+        map.getPane('pane_UBVSM40km_5').style.zIndex = 405;
+        map.getPane('pane_UBVSM40km_5').style['mix-blend-mode'] = 'normal';
+        var layer_UBVSM40km_5 = new L.geoJson(json_UBVSM40km_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_UBVSM40km_5',
+            layerName: 'layer_UBVSM40km_5',
+            pane: 'pane_UBVSM40km_5',
+            onEachFeature: pop_UBVSM40km_5,
+            style: style_UBVSM40km_5_0,
+        });
+        bounds_group.addLayer(layer_UBVSM40km_5);
+        map.addLayer(layer_UBVSM40km_5);
+        function pop_Uso_solo_20_30_UBVSM_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['iD'] !== null ? autolinker.link(feature.properties['iD'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Área'] !== null ? autolinker.link(feature.properties['Área'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Uso_solo_20_30_UBVSM_6_0(feature) {
+            switch(String(feature.properties['iD'])) {
+                case '15':
+                    return {
+                pane: 'pane_Uso_solo_20_30_UBVSM_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,191,111,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '20':
+                    return {
+                pane: 'pane_Uso_solo_20_30_UBVSM_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(251,154,153,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '21':
+                    return {
+                pane: 'pane_Uso_solo_20_30_UBVSM_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(81,163,206,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '39':
+                    return {
+                pane: 'pane_Uso_solo_20_30_UBVSM_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(211,255,190,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '41':
+                    return {
+                pane: 'pane_Uso_solo_20_30_UBVSM_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(104,34,233,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Uso_solo_20_30_UBVSM_6');
+        map.getPane('pane_Uso_solo_20_30_UBVSM_6').style.zIndex = 406;
+        map.getPane('pane_Uso_solo_20_30_UBVSM_6').style['mix-blend-mode'] = 'normal';
+        var layer_Uso_solo_20_30_UBVSM_6 = new L.geoJson(json_Uso_solo_20_30_UBVSM_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Uso_solo_20_30_UBVSM_6',
+            layerName: 'layer_Uso_solo_20_30_UBVSM_6',
+            pane: 'pane_Uso_solo_20_30_UBVSM_6',
+            onEachFeature: pop_Uso_solo_20_30_UBVSM_6,
+            style: style_Uso_solo_20_30_UBVSM_6_0,
+        });
+        bounds_group.addLayer(layer_Uso_solo_20_30_UBVSM_6);
+        map.addLayer(layer_Uso_solo_20_30_UBVSM_6);
+        function pop_UBCSM30km_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Nome'] !== null ? autolinker.link(feature.properties['Nome'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Lat'] !== null ? autolinker.link(feature.properties['Lat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Long'] !== null ? autolinker.link(feature.properties['Long'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Elev'] !== null ? autolinker.link(feature.properties['Elev'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_UBCSM30km_7_0() {
+            return {
+                pane: 'pane_UBCSM30km_7',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(243,166,178,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_UBCSM30km_7');
+        map.getPane('pane_UBCSM30km_7').style.zIndex = 407;
+        map.getPane('pane_UBCSM30km_7').style['mix-blend-mode'] = 'normal';
+        var layer_UBCSM30km_7 = new L.geoJson(json_UBCSM30km_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_UBCSM30km_7',
+            layerName: 'layer_UBCSM30km_7',
+            pane: 'pane_UBCSM30km_7',
+            onEachFeature: pop_UBCSM30km_7,
+            style: style_UBCSM30km_7_0,
+        });
+        bounds_group.addLayer(layer_UBCSM30km_7);
+        map.addLayer(layer_UBCSM30km_7);
+        function pop_Uso_solo_10_20_UBVSM_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['iD'] !== null ? autolinker.link(feature.properties['iD'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Área'] !== null ? autolinker.link(feature.properties['Área'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Uso_solo_10_20_UBVSM_8_0(feature) {
+            switch(String(feature.properties['iD'])) {
+                case '15':
+                    return {
+                pane: 'pane_Uso_solo_10_20_UBVSM_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,191,111,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '20':
+                    return {
+                pane: 'pane_Uso_solo_10_20_UBVSM_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(251,154,153,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '21':
+                    return {
+                pane: 'pane_Uso_solo_10_20_UBVSM_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(81,163,206,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '39':
+                    return {
+                pane: 'pane_Uso_solo_10_20_UBVSM_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(211,255,190,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '41':
+                    return {
+                pane: 'pane_Uso_solo_10_20_UBVSM_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(104,34,233,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Uso_solo_10_20_UBVSM_8');
+        map.getPane('pane_Uso_solo_10_20_UBVSM_8').style.zIndex = 408;
+        map.getPane('pane_Uso_solo_10_20_UBVSM_8').style['mix-blend-mode'] = 'normal';
+        var layer_Uso_solo_10_20_UBVSM_8 = new L.geoJson(json_Uso_solo_10_20_UBVSM_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Uso_solo_10_20_UBVSM_8',
+            layerName: 'layer_Uso_solo_10_20_UBVSM_8',
+            pane: 'pane_Uso_solo_10_20_UBVSM_8',
+            onEachFeature: pop_Uso_solo_10_20_UBVSM_8,
+            style: style_Uso_solo_10_20_UBVSM_8_0,
+        });
+        bounds_group.addLayer(layer_Uso_solo_10_20_UBVSM_8);
+        map.addLayer(layer_Uso_solo_10_20_UBVSM_8);
+        function pop_UBVSM20km_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Nome'] !== null ? autolinker.link(feature.properties['Nome'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Lat'] !== null ? autolinker.link(feature.properties['Lat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Long'] !== null ? autolinker.link(feature.properties['Long'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Elev'] !== null ? autolinker.link(feature.properties['Elev'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_UBVSM20km_9_0() {
+            return {
+                pane: 'pane_UBVSM20km_9',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(145,82,45,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_UBVSM20km_9');
+        map.getPane('pane_UBVSM20km_9').style.zIndex = 409;
+        map.getPane('pane_UBVSM20km_9').style['mix-blend-mode'] = 'normal';
+        var layer_UBVSM20km_9 = new L.geoJson(json_UBVSM20km_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_UBVSM20km_9',
+            layerName: 'layer_UBVSM20km_9',
+            pane: 'pane_UBVSM20km_9',
+            onEachFeature: pop_UBVSM20km_9,
+            style: style_UBVSM20km_9_0,
+        });
+        bounds_group.addLayer(layer_UBVSM20km_9);
+        map.addLayer(layer_UBVSM20km_9);
+        function pop_Uso_solo_0_10_UBVSM_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['iD'] !== null ? autolinker.link(feature.properties['iD'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Área'] !== null ? autolinker.link(feature.properties['Área'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Uso_solo_0_10_UBVSM_10_0(feature) {
+            switch(String(feature.properties['iD'])) {
+                case '15':
+                    return {
+                pane: 'pane_Uso_solo_0_10_UBVSM_10',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,191,111,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '20':
+                    return {
+                pane: 'pane_Uso_solo_0_10_UBVSM_10',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(251,154,153,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '21':
+                    return {
+                pane: 'pane_Uso_solo_0_10_UBVSM_10',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(81,163,206,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '39':
+                    return {
+                pane: 'pane_Uso_solo_0_10_UBVSM_10',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(211,255,190,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '41':
+                    return {
+                pane: 'pane_Uso_solo_0_10_UBVSM_10',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(104,34,233,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Uso_solo_0_10_UBVSM_10');
+        map.getPane('pane_Uso_solo_0_10_UBVSM_10').style.zIndex = 410;
+        map.getPane('pane_Uso_solo_0_10_UBVSM_10').style['mix-blend-mode'] = 'normal';
+        var layer_Uso_solo_0_10_UBVSM_10 = new L.geoJson(json_Uso_solo_0_10_UBVSM_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Uso_solo_0_10_UBVSM_10',
+            layerName: 'layer_Uso_solo_0_10_UBVSM_10',
+            pane: 'pane_Uso_solo_0_10_UBVSM_10',
+            onEachFeature: pop_Uso_solo_0_10_UBVSM_10,
+            style: style_Uso_solo_0_10_UBVSM_10_0,
+        });
+        bounds_group.addLayer(layer_Uso_solo_0_10_UBVSM_10);
+        map.addLayer(layer_Uso_solo_0_10_UBVSM_10);
+        function pop_UBVSM10km_11(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Nome'] !== null ? autolinker.link(feature.properties['Nome'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Lat'] !== null ? autolinker.link(feature.properties['Lat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Long'] !== null ? autolinker.link(feature.properties['Long'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Elev'] !== null ? autolinker.link(feature.properties['Elev'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_UBVSM10km_11_0() {
+            return {
+                pane: 'pane_UBVSM10km_11',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(213,180,60,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_UBVSM10km_11');
+        map.getPane('pane_UBVSM10km_11').style.zIndex = 411;
+        map.getPane('pane_UBVSM10km_11').style['mix-blend-mode'] = 'normal';
+        var layer_UBVSM10km_11 = new L.geoJson(json_UBVSM10km_11, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_UBVSM10km_11',
+            layerName: 'layer_UBVSM10km_11',
+            pane: 'pane_UBVSM10km_11',
+            onEachFeature: pop_UBVSM10km_11,
+            style: style_UBVSM10km_11_0,
+        });
+        bounds_group.addLayer(layer_UBVSM10km_11);
+        map.addLayer(layer_UBVSM10km_11);
+        function pop_UBVSM_12(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Nome'] !== null ? autolinker.link(feature.properties['Nome'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Lat'] !== null ? autolinker.link(feature.properties['Lat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Long'] !== null ? autolinker.link(feature.properties['Long'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Elev'] !== null ? autolinker.link(feature.properties['Elev'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_UBVSM_12_0() {
+            return {
+                pane: 'pane_UBVSM_12',
+                radius: 5.999999999999998,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_UBVSM_12');
+        map.getPane('pane_UBVSM_12').style.zIndex = 412;
+        map.getPane('pane_UBVSM_12').style['mix-blend-mode'] = 'normal';
+        var layer_UBVSM_12 = new L.geoJson(json_UBVSM_12, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_UBVSM_12',
+            layerName: 'layer_UBVSM_12',
+            pane: 'pane_UBVSM_12',
+            onEachFeature: pop_UBVSM_12,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_UBVSM_12_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_UBVSM_12);
+        map.addLayer(layer_UBVSM_12);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/UBVSM_12.png" /> UBVSM': layer_UBVSM_12,'<img src="legend/UBVSM10km_11.png" /> UBVSM10km': layer_UBVSM10km_11,'Uso_solo_0_10_UBVSM<br /><table><tr><td style="text-align: center;"><img src="legend/Uso_solo_0_10_UBVSM_10_15Pastagem0.png" /></td><td>15 - Pastagem</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_0_10_UBVSM_10_20Cana1.png" /></td><td>20 - Cana</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_0_10_UBVSM_10_21MosaicoAgriculturaePastagem2.png" /></td><td>21 - Mosaico Agricultura e Pastagem</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_0_10_UBVSM_10_39Soja3.png" /></td><td>39 - Soja</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_0_10_UBVSM_10_41OutrasLavourasTemporárias4.png" /></td><td>41 - Outras Lavouras Temporárias</td></tr></table>': layer_Uso_solo_0_10_UBVSM_10,'<img src="legend/UBVSM20km_9.png" /> UBVSM20km': layer_UBVSM20km_9,'Uso_solo_10_20_UBVSM<br /><table><tr><td style="text-align: center;"><img src="legend/Uso_solo_10_20_UBVSM_8_15Pastagem0.png" /></td><td>15 - Pastagem</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_10_20_UBVSM_8_20Cana1.png" /></td><td>20 - Cana</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_10_20_UBVSM_8_21MosaicoAgriculturaePastagem2.png" /></td><td>21 - Mosaico Agricultura e Pastagem</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_10_20_UBVSM_8_39Soja3.png" /></td><td>39 - Soja</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_10_20_UBVSM_8_41OutrasLavourasTemporárias4.png" /></td><td>41 - Outras Lavouras Temporárias</td></tr></table>': layer_Uso_solo_10_20_UBVSM_8,'<img src="legend/UBCSM30km_7.png" /> UBCSM30km': layer_UBCSM30km_7,'Uso_solo_20_30_UBVSM<br /><table><tr><td style="text-align: center;"><img src="legend/Uso_solo_20_30_UBVSM_6_15Pastagem0.png" /></td><td>15 - Pastagem</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_20_30_UBVSM_6_20Cana1.png" /></td><td>20 - Cana</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_20_30_UBVSM_6_21MosaicoAgriculturaePastagem2.png" /></td><td>21 - Mosaico Agricultura e Pastagem</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_20_30_UBVSM_6_39Soja3.png" /></td><td>39 - Soja</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_20_30_UBVSM_6_41OutrasLavourasTemporárias4.png" /></td><td>41 - Outras Lavouras Temporárias</td></tr></table>': layer_Uso_solo_20_30_UBVSM_6,'<img src="legend/UBVSM40km_5.png" /> UBVSM40km': layer_UBVSM40km_5,'Uso_solo_30_40_UBVSM<br /><table><tr><td style="text-align: center;"><img src="legend/Uso_solo_30_40_UBVSM_4_15Pastagem0.png" /></td><td>15 - Pastagem</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_30_40_UBVSM_4_20Cana1.png" /></td><td>20 - Cana</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_30_40_UBVSM_4_21MosaicoAgriculturaePastagem2.png" /></td><td>21 - Mosaico Agricultura e Pastagem</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_30_40_UBVSM_4_39Soja3.png" /></td><td>39 - Soja</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_30_40_UBVSM_4_41OutrasLavourasTemporárias4.png" /></td><td>41 - Outras Lavouras Temporárias</td></tr></table>': layer_Uso_solo_30_40_UBVSM_4,'<img src="legend/UBVSM50km_3.png" /> UBVSM50km': layer_UBVSM50km_3,'Uso_solo_40_50_UBVSM<br /><table><tr><td style="text-align: center;"><img src="legend/Uso_solo_40_50_UBVSM_2_15Pastagem0.png" /></td><td>15 - Pastagem</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_40_50_UBVSM_2_20Cana1.png" /></td><td>20 - Cana</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_40_50_UBVSM_2_21MosaicoAgriculturaePastagem2.png" /></td><td>21 - Mosaico Agricultura e Pastagem</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_40_50_UBVSM_2_39Soja3.png" /></td><td>39 - Soja</td></tr><tr><td style="text-align: center;"><img src="legend/Uso_solo_40_50_UBVSM_2_41OutrasLavourasTemporárias4.png" /></td><td>41 - Outras Lavouras Temporárias</td></tr></table>': layer_Uso_solo_40_50_UBVSM_2,"Google Satellite": layer_GoogleSatellite_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
