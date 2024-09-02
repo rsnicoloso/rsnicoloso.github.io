@@ -1,2 +1,0 @@
-# Embrapa_GSM
-UBVSM
